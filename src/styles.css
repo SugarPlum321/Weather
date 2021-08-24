@@ -1,0 +1,82 @@
+/*
+#E67676 redish
+#F2F062 yellow
+#A9E6E6 light buleish
+#7692E4 past blue
+*/
+body {
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: auto;
+  max-width: 650px;
+  font-family: "Itim", cursive;
+}
+h1 {
+  padding: 20px 0 10px;
+  font-size: 80px;
+  color: #7692e4;
+  text-align: center;
+}
+h2 {
+  color: #e67676;
+  font-size: 40px;
+  text-align: center;
+  padding: 10px;
+}
+
+form {
+  padding: 20px 20px;
+}
+.weatherApp {
+  border: solid 4px #89e676;
+  border-radius: 20px;
+  padding: 20px;
+}
+#todayDate {
+  font-size: 20px;
+  text-align: center;
+}
+.todayWeather {
+  border: solid 5px #f2f062;
+  border-radius: 20px;
+  padding: 5px 5px;
+}
+.todayIcon {
+  width: 150px;
+}
+.humidity {
+  text-align: center;
+}
+.memo {
+  padding-top: 50px;
+}
+.memoPhrase {
+  text-align: center;
+}
+.memoWeather {
+  width: 250px;
+}
+.forcast {
+  background-color: #a9e6e6;
+  border-radius: 20px;
+  padding: 20px 20px;
+}
+.dayBox {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: solid 3px #7692e4;
+  border-radius: 20px;
+  padding: 5px 5px;
+  margin: 10px;
+}
+.fiveDayIcon {
+  width: 70px;
+}
+.fahrenheit {
+  font-size: 20px;
+  font-weight: bold;
+}
+.celsius {
+  font-size: 17px;
+  font-weight: lighter;
+}
