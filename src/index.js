@@ -11,46 +11,51 @@ function displayDate() {
   let todayDate = `${today} ${hour}:${minutes}`;
   return todayDate;
 }
+
 let dateIsNow = document.querySelector("#todayDate");
 dateIsNow.innerHTML = `${displayDate()}`;
 
 //City input
-function displayCity(event) {
-  event.preventDefault();
-  let cityLocation = document.querySelector("#city-Location");
-  let city = document.querySelector("#input-city").value;
-  cityLocation.innerHTML = city;
+function seachCity(city) {
   let apiKey = "a05ae6cedba9f2ae2d858f2bc163bc51";
   let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
   console.log(apiURL);
   axios.get(apiURL).then(getTemp);
+  displayCity.innerHTML = document.querySelector("#city-Location").value;
 }
+
+function displayCity(event) {
+  event.preventDefault();
+  let city = document.querySelector("#input-city").value;
+  seachCity(city);
+}
+seachCity("New York");
 
 let formCity = document.querySelector("#form-city");
 formCity.addEventListener("submit", displayCity);
 
 //feching temp
 function getTemp(response) {
-  let temF = Math.round(response.data.main.temp);
+  let tempF = Math.round(response.data.main.temp);
   let todayTempFah = document.querySelector("#todayFahrenheit");
-  todayTempFah.innerHTML = `${temF}°F`;
+  todayTempFah.innerHTML = `${tempF}°F`;
   let humidity = response.data.main.humidity;
-  console.log(humidity);
   let todayhumidity = document.querySelector("#humidity");
   todayhumidity.innerHTML = `${humidity}`;
+  let tempC = Math.round(((response.data.main.temp - 32) * 5) / 9);
+  console.log(tempC);
+  let todayTempCel = document.querySelector("#todayCelsius");
+  todayTempCel.innerHTML = `${tempC}°C`;
 }
 
-//🙀 Bonus point:
-//Add a Current Location button.
-//When clicking on it, it uses the Geolocation API to get
-//your GPS coordinates and display and the city and current
-//temperature using the OpenWeather API.
-
-//function handlePosition(position) {
-//let lat = position.coords.latitude;
-//let lon = position.coords.longitude;
+//Auto weather for cutrrent location
+//function searchLocation(position) {
 //let apiKey = "a05ae6cedba9f2ae2d858f2bc163bc51";
-//let apiURL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`;
-//axios.get(apiURL).then(getTemp);
+//let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=imperial`;
+
+//axios.get(apiUrl).then(getTemp);
 //}
-//navigator.geolocation.getCurrentPosition(handlePosition);
+//function getCurrentLocation(event) {
+//event.preventDefault();
+//navigator.geolocation.getCurrentPosition(searchLocation);
+//}
