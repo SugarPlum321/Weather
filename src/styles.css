@@ -61,7 +61,7 @@ form {
 .memo {
   padding-top: 50px;
 }
-.memoPhrase {
+#weatherDiscrip {
   text-align: center;
 }
 .memoWeather {
