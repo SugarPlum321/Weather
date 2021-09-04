@@ -42,9 +42,19 @@ form {
   border-radius: 20px;
   padding: 5px 5px;
 }
-.todayIcon {
+#todayIcon {
   width: 150px;
 }
+#todayTemp {
+  padding: 40px 0px 0px 40px;
+}
+#todayFahrenheit {
+  font-weight: bolder;
+}
+#todayCelsius {
+  font-weight: lighter;
+}
+
 .humidity {
   text-align: center;
 }

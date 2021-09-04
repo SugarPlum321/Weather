@@ -33,7 +33,7 @@ seachCity("New York");
 let formCity = document.querySelector("#form-city");
 formCity.addEventListener("submit", displayCity);
 
-//feching temp
+//feching Today infor
 function getInfo(response) {
   document.querySelector("#city-Location").innerHTML = response.data.name;
   let tempF = Math.round(response.data.main.temp);
@@ -43,19 +43,7 @@ function getInfo(response) {
   let todayhumidity = document.querySelector("#humidity");
   todayhumidity.innerHTML = `${humidity}`;
   let tempC = Math.round(((response.data.main.temp - 32) * 5) / 9);
-  console.log(tempC);
+
   let todayTempCel = document.querySelector("#todayCelsius");
   todayTempCel.innerHTML = `${tempC}°C`;
 }
-
-//Auto weather for cutrrent location
-//function searchLocation(position) {
-//let apiKey = "a05ae6cedba9f2ae2d858f2bc163bc51";
-//let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=imperial`;
-
-//axios.get(apiUrl).then(getInfo);
-//}
-//function getCurrentLocation(event) {
-//event.preventDefault();
-//navigator.geolocation.getCurrentPosition(searchLocation);
-//}
