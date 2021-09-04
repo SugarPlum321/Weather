@@ -49,8 +49,11 @@ function getInfo(response) {
     response.data.weather[0].description;
   document.querySelector("#windSpeed").innerHTML = response.data.wind.speed;
   //icon
-  document.querySelector("#todayIcon").setAttribute =
-    response.data.weather[0].icon;
+  let todayIcon = response.data.weather[0].icon;
+  document
+    .querySelector("#todayIcon")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${todayIcon}@2x.png`
+    );
 }
-
-//and weather icon are mandatory.
