@@ -57,3 +57,33 @@ function getInfo(response) {
       `http://openweathermap.org/img/wn/${todayIcon}@2x.png`
     );
 }
+//5 day forcast #forcast-Days
+function displayForcast() {
+  let forcastDays = document.querySelector("#forcast-Days");
+  let forcastHTML = "";
+  let days = ["Monday", "Tuseday", "Wensday"];
+  days.forEach(function (day) {
+    //display box
+    forcastHTML =
+      forcastHTML +
+      `
+  <div class="dayBox" class="col-12" >
+    <h4 class="day">${day}</h4>
+      <div class="row">
+        <div class="col">
+        <img class="fiveDayIcon" src="img/icon_clear sky.png" />
+        </div>
+        <div class="col">
+        <h3 class="fahrenheit">93°F</h3>
+          <div class="row">
+          <h3 class="celsius">34°c</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+  });
+
+  forcastDays.innerHTML = forcastHTML;
+}
+displayForcast();
