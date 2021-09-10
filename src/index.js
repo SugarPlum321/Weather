@@ -56,16 +56,26 @@ function getInfo(response) {
       "src",
       `http://openweathermap.org/img/wn/${todayIcon}@2x.png`
     );
+  //5 day forcast call
+  getForecast(response.data.coord);
 }
-//5 day forcast #forcast-Days
-function displayForcast() {
-  let forcastDays = document.querySelector("#forcast-Days");
-  let forcastHTML = "";
+//5 day forcast
+function getForecast(coordinates) {
+  let apiKey = "a05ae6cedba9f2ae2d858f2bc163bc51";
+  let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
+  console.log(apiURL);
+  axios.get(apiURL).then(displayForecast);
+}
+
+function displayForecast(response) {
+  console.log(response.data.daily);
+  let forecastDays = document.querySelector("#forcast-Days");
+  let forecastHTML = "";
   let days = ["Monday", "Tuseday", "Wensday"];
   days.forEach(function (day) {
     //display box
-    forcastHTML =
-      forcastHTML +
+    forecastHTML =
+      forecastHTML +
       `
   <div class="dayBox" class="col-12" >
     <h4 class="day">${day}</h4>
@@ -84,6 +94,5 @@ function displayForcast() {
   `;
   });
 
-  forcastDays.innerHTML = forcastHTML;
+  forecastDays.innerHTML = forecastHTML;
 }
-displayForcast();
