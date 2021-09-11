@@ -55,14 +55,12 @@ form {
   font-weight: lighter;
 }
 
-.humidity {
+#dayData {
   text-align: center;
 }
+
 .memo {
   padding-top: 50px;
-}
-#weatherDiscrip {
-  text-align: center;
 }
 .memoWeather {
   width: 250px;
